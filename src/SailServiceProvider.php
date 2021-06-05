@@ -6,6 +6,7 @@ use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Sail\Console\InstallCommand;
 use Laravel\Sail\Console\PublishCommand;
+use Laravel\Sail\Console\QueueWorkerMakeCommand;
 
 class SailServiceProvider extends ServiceProvider implements DeferrableProvider
 {
@@ -31,6 +32,7 @@ class SailServiceProvider extends ServiceProvider implements DeferrableProvider
             $this->commands([
                 InstallCommand::class,
                 PublishCommand::class,
+                QueueWorkerMakeCommand::class,
             ]);
         }
     }
@@ -59,6 +61,7 @@ class SailServiceProvider extends ServiceProvider implements DeferrableProvider
         return [
             InstallCommand::class,
             PublishCommand::class,
+            QueueWorkerMakeCommand::class,
         ];
     }
 }

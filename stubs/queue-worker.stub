@@ -1,0 +1,10 @@
+    queue-{{queue}}-worker:
+        image: sail-8.0/app
+        container_name: queue-{{queue}}-worker
+        depends_on:
+            - redis
+        networks:
+            - sail
+        volumes:
+            - '.:/var/www/html'
+        entrypoint: [ 'php', 'artisan', 'queue:work', '--queue={{queue}}' ]
